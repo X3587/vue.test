@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-16 11:18:36
- * @LastEditTime: 2020-10-16 11:26:10
+ * @LastEditTime: 2020-10-20 11:48:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\router\index.js
@@ -18,13 +18,14 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'Test',
+      component: Test
+    },
+    {
+      path: '/hello',
       name: 'HelloWorld',
       component: HelloWorld
     },
-    {
-      path: '/test',
-      name: 'Test',
-      component: Test
-    }
+    
   ]
 })
