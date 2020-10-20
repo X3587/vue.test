@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-16 11:25:39
- * @LastEditTime: 2020-10-20 09:42:41
+ * @LastEditTime: 2020-10-20 11:01:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\components\Test.vue
@@ -26,7 +26,8 @@ export default {
   },
   created() {
     userList().then((res)=>{
-      this.tableData = res.data.list
+      console.log(res)
+      this.tableData = res.list
     })
   },
   methods: {},
