@@ -1,6 +1,14 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-20 10:23:15
+ * @LastEditTime: 2020-10-21 10:45:02
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \vue.test\src\App.vue
+-->
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <!-- <img src="./assets/logo.png"> -->
     <router-view/>
   </div>
 </template>
