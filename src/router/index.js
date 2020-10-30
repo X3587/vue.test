@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-16 11:18:36
- * @LastEditTime: 2020-10-21 10:43:03
+ * @LastEditTime: 2020-10-30 09:25:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\router\index.js
@@ -23,7 +23,7 @@ export default new Router({
       component: Login
     },
     {
-      path: 'test',
+      path: '/test',
       name: 'Test',
       component: Test
     },
