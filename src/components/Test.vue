@@ -10,7 +10,7 @@
   <div class="content">
     <div class="tables">
       <el-table :data="tableData" style="width: 100%">
-        <el-table-column prop="id" label="日期" width="180"> </el-table-column>
+        <el-table-column prop="id" label="编号" width="180"> </el-table-column>
         <el-table-column prop="name" label="姓名" width="180">
         </el-table-column>
         <el-table-column prop="pwd" label="密码"> </el-table-column>

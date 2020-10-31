@@ -15,7 +15,11 @@
           <el-input v-model="form.name" placeholder="请输入用户名"></el-input>
         </el-form-item>
         <el-form-item label="密码">
-          <el-input v-model="form.pwd" placeholder="请输入密码" show-password></el-input>
+          <el-input
+            v-model="form.pwd"
+            placeholder="请输入密码"
+            show-password
+          ></el-input>
         </el-form-item>
         <el-form-item style="text-align: center">
           <el-button type="primary" @click="onSubmit">登陆</el-button>
@@ -39,8 +43,7 @@ export default {
       form: {
         name: "",
         pwd: ""
-      },
-      
+      }
     };
   },
   //监听属性 类似于data概念
@@ -58,17 +61,22 @@ export default {
     onSubmit() {
       const { name, pwd } = this.form;
       if (name == "" || pwd == "") {
-        alert("用户名或密码为空");
+        this.$message.error("用户名或密码为空");
       } else {
         login({
           userName: name,
           userPwd: pwd
         }).then(res => {
           console.log(res);
-          if(res.status == 200){
-            this.$router.push({ path:'/test'})
-          }else{
-            alert(res.msg)
+          if (res.status == 200) {
+            this.$message({
+              message: "登陆成功",
+              type: "success",
+              duration: "1000"
+            });
+            this.$router.push({ path: "/test" });
+          } else {
+            this.$message.error(res.msg);
           }
         });
       }
