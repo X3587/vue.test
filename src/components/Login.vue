@@ -9,23 +9,13 @@
 <!--  -->
 <template>
   <div>
-    <!-- <div>{{ message }}</div>
-    <div v-for="(item, i) in arr" :key="i">
-      {{ item }}
-    </div>
-    <ul>
-      <li v-for="(item, i) in arrObj" :key="i">{{ item.name + item.age }}</li>
-    </ul>
-    <h1>当前计数：{{ num }}</h1>
-    <button @click="add()">+</button>
-    <button @click="reduce()">-</button> -->
     <div class="forms">
       <el-form ref="form" :model="form" label-width="80px">
         <el-form-item label="用户名">
-          <el-input v-model="form.name"></el-input>
+          <el-input v-model="form.name" placeholder="请输入用户名"></el-input>
         </el-form-item>
         <el-form-item label="密码">
-          <el-input v-model="form.pwd"></el-input>
+          <el-input v-model="form.pwd" placeholder="请输入密码" show-password></el-input>
         </el-form-item>
         <el-form-item style="text-align: center">
           <el-button type="primary" @click="onSubmit">登陆</el-button>
@@ -46,17 +36,11 @@ export default {
   data() {
     //这里存放数据
     return {
-      message: "哈哈哈哈哈1",
-      arr: ["a", "b", "c"],
-      arrObj: [
-        { name: "aaaa", age: 19 },
-        { name: "ccccc", age: 20 },
-      ],
-      num: 0,
       form: {
         name: "",
-        pwd: "",
+        pwd: ""
       },
+      
     };
   },
   //监听属性 类似于data概念
@@ -73,15 +57,24 @@ export default {
     },
     onSubmit() {
       const { name, pwd } = this.form;
-      console.log("name!", name);
-      console.log("pwd!", pwd);
-      login({
-        userName: name,
-        userPwd: pwd,
-      }).then((res) => {
-        console.log(res);
-      });
-    },
+      if (name == "" || pwd == "") {
+        alert("用户名或密码为空");
+      } else {
+        login({
+          userName: name,
+          userPwd: pwd
+        }).then(res => {
+          console.log(res);
+          if(res.status == 200){
+            this.$router.push({ path:'/test'})
+          }else{
+            alert(res.msg)
+          }
+        });
+      }
+      // console.log("name!", name);
+      // console.log("pwd!", pwd);
+    }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
@@ -93,7 +86,7 @@ export default {
   updated() {}, //生命周期 - 更新之后
   beforeDestroy() {}, //生命周期 - 销毁之前
   destroyed() {}, //生命周期 - 销毁完成
-  activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
+  activated() {} //如果页面有keep-alive缓存功能，这个函数会触发
 };
 </script>
 <style scoped>
