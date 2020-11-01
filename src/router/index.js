@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-16 11:18:36
- * @LastEditTime: 2020-10-30 09:25:34
+ * @LastEditTime: 2020-11-01 14:51:17
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\router\index.js
@@ -16,6 +16,8 @@ import Login from '@/components/Login'
 Vue.use(Router)
 
 export default new Router({
+  base: '/vueTest',
+  mode:"history",
   routes: [
     {
       path: '/',
