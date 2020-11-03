@@ -1,14 +1,13 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-20 10:23:15
- * @LastEditTime: 2020-10-28 13:46:47
+ * @LastEditTime: 2020-11-03 20:14:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue.test\src\App.vue
 -->
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
     <router-view/>
   </div>
 </template>

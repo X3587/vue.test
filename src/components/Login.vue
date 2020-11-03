@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-21 10:21:14
- * @LastEditTime: 2020-10-30 16:00:02
+ * @LastEditTime: 2020-11-02 11:09:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue.test\src\components\Login.vue
@@ -52,12 +52,12 @@ export default {
   watch: {},
   //方法集合
   methods: {
-    add() {
-      this.num++;
-    },
-    reduce() {
-      this.num--;
-    },
+    // add() {
+    //   this.num++;
+    // },
+    // reduce() {
+    //   this.num--;
+    // },
     onSubmit() {
       const { name, pwd } = this.form;
       if (name == "" || pwd == "") {
@@ -74,14 +74,15 @@ export default {
               type: "success",
               duration: "1000"
             });
-            this.$router.push({ path: "/test" });
+            let that = this;
+            setTimeout(function(){
+              that.$router.push({ path: "/test" }); 
+              }, 1002);
           } else {
             this.$message.error(res.msg);
           }
         });
       }
-      // console.log("name!", name);
-      // console.log("pwd!", pwd);
     }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
