@@ -7,19 +7,26 @@
  * @FilePath: \vue.test\src\components\index.vue
 -->
 <template>
-    <div>
-        <Header/>
-        <LeftMenu/>
-    </div>
+  <div>
+    <el-container>
+      <el-aside width="210px"><leftMenu /></el-aside>
+      <el-container>
+        <el-header><headers /></el-header>
+        <el-main>Main</el-main>
+      </el-container>
+    </el-container>
+  </div>
 </template>
 
 <script>
-import LeftMenu from '@/components/LeftMenu'
-import Header from '@/components/Header'
+import leftMenu from "@/components/LeftMenu";
+import headers from "@/components/Header";
 export default {
-  
-}
+  components: {
+    headers: headers,
+    leftMenu: leftMenu
+  }
+};
 </script>
 
-<style>
-</style>
+<style></style>
