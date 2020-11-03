@@ -74,6 +74,7 @@ export default {
               type: "success",
               duration: "1000"
             });
+            localStorage.setItem("token",res.token); 
             let that = this;
             setTimeout(function(){
               that.$router.push({ path: "/test" }); 

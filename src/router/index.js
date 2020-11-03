@@ -20,13 +20,13 @@ export default new Router({
   // base: '/',
   mode:"history",
   routes: [
+    // {
+    //   path: '/',
+    //   name: 'Index',
+    //   component: Index
+    // },
     {
       path: '/',
-      name: 'Index',
-      component: Index
-    },
-    {
-      path: '/login',
       name: 'Login',
       component: Login
     },
