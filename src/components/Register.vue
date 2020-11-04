@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-21 10:21:14
- * @LastEditTime: 2020-11-04 14:07:19
+ * @LastEditTime: 2020-11-04 15:45:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue.test\src\components\Login.vue
@@ -10,7 +10,7 @@
 <template>
   <div class="login">
     <div class="forms">
-      <h1 class="title">XXX商城管理系统</h1>
+      <h1 class="title"></h1>
       <el-form ref="form" :model="form" label-width="80px">
         <el-form-item label="用户名" style="width: 380px">
           <el-input v-model="form.name" placeholder="请输入用户名"></el-input>
@@ -22,8 +22,15 @@
             show-password
           ></el-input>
         </el-form-item>
-        <el-button type="primary" @click="onSubmit">登陆</el-button>
-        <el-button @click="register">注册</el-button>
+        <el-form-item label="确认密码" style="width: 380px">
+          <el-input
+            v-model="form.repwd"
+            placeholder="请输入密码"
+            show-password
+          ></el-input>
+        </el-form-item>
+        <el-button type="primary" @click="onSubmit">注册</el-button>
+        <el-button @click="rest">重置</el-button>
       </el-form>
     </div>
   </div>
@@ -32,7 +39,7 @@
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-import { login } from "@/request/api"; // 导入我们的api接口
+import { register } from "@/request/api"; // 导入我们的api接口
 export default {
   //import引入的组件需要注入到对象中才能使用
   components: {},
@@ -42,6 +49,7 @@ export default {
       form: {
         name: "",
         pwd: "",
+        repwd: "",
       },
     };
   },
@@ -58,25 +66,26 @@ export default {
     //   this.num--;
     // },
     onSubmit() {
-      const { name, pwd } = this.form;
-      if (name == "" || pwd == "") {
+      const { name, pwd, repwd } = this.form;
+      if (name == "" || pwd == "" || repwd == "") {
         this.$message.error("用户名或密码为空");
+      } else if (pwd !== repwd) {
+        this.$message.error("密码输入不一致");
       } else {
-        login({
+        register({
           userName: name,
           userPwd: pwd,
         }).then((res) => {
           console.log(res);
           if (res.status == 200) {
             this.$message({
-              message: "登陆成功",
+              message: "注册成功",
               type: "success",
               duration: "1000",
             });
-            localStorage.setItem("token", res.token);
             let that = this;
             setTimeout(function () {
-              that.$router.push({ path: "/index" });
+              that.$router.push({ path: "/" });
             }, 1002);
           } else {
             this.$message.error(res.msg);
@@ -84,9 +93,13 @@ export default {
         });
       }
     },
-    register(){
-      this.$router.push({ path: "/reister" });
-    }
+    rest() {
+      this.form = {
+        name: "",
+        pwd: "",
+        repwd: "",
+      };
+    },
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
@@ -105,7 +118,8 @@ export default {
 .login {
   width: 100%;
   height: 100vh;
-  background:url(https://img.alicdn.com/imgextra/i1/2609832847/O1CN019eE4Y21WtyEUTWuPt_!!2609832847.jpg) no-repeat;
+  background: url(https://img.alicdn.com/imgextra/i1/2609832847/O1CN019eE4Y21WtyEUTWuPt_!!2609832847.jpg)
+    no-repeat;
   background-size: 100% 100%;
 }
 .forms {
@@ -122,7 +136,7 @@ export default {
   padding: 35px;
   background-color: #fff;
 }
-.title{
+.title {
   text-align: center;
   margin-bottom: 20px;
 }

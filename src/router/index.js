@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-16 11:18:36
- * @LastEditTime: 2020-11-04 10:17:57
+ * @LastEditTime: 2020-11-04 14:05:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\router\index.js
@@ -12,6 +12,8 @@ import HelloWorld from '@/components/HelloWorld'
 import Test from '@/components/Test'
 import Index from '@/components/Index'
 import Login from '@/components/Login'
+import Register from '@/components/Register'
+
 
 
 Vue.use(Router)
@@ -24,6 +26,11 @@ export default new Router({
       path: '/',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/reister',
+      name: 'Register',
+      component: Register
     },
     {
       path: '/index',
