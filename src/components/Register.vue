@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-21 10:21:14
- * @LastEditTime: 2020-11-04 15:45:29
+ * @LastEditTime: 2020-11-04 16:04:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue.test\src\components\Login.vue
@@ -32,6 +32,7 @@
         <el-button type="primary" @click="onSubmit">注册</el-button>
         <el-button @click="rest">重置</el-button>
       </el-form>
+        <div style="margin:20px 0px;color:#409EFF;cursor: pointer;" @click="goToLogin">已有帐号?去登陆></div>
     </div>
   </div>
 </template>
@@ -100,6 +101,9 @@ export default {
         repwd: "",
       };
     },
+    goToLogin(){
+        this.$router.push({ path: "/" });
+    }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
@@ -121,6 +125,7 @@ export default {
   background: url(https://img.alicdn.com/imgextra/i1/2609832847/O1CN019eE4Y21WtyEUTWuPt_!!2609832847.jpg)
     no-repeat;
   background-size: 100% 100%;
+  
 }
 .forms {
   width: 400px;
@@ -133,7 +138,7 @@ export default {
   margin: auto;
   text-align: center;
   border-radius: 10px;
-  padding: 35px;
+  padding: 35px 35px 50px 35px;
   background-color: #fff;
 }
 .title {
