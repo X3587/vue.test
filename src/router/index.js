@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-16 11:18:36
- * @LastEditTime: 2020-11-03 20:27:40
+ * @LastEditTime: 2020-11-04 10:17:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\router\index.js
@@ -18,17 +18,17 @@ Vue.use(Router)
 
 export default new Router({
   // base: '/',
-  mode:"history",
+  mode: "history",
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'Index',
-    //   component: Index
-    // },
     {
       path: '/',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/index',
+      name: 'Index',
+      component: Index
     },
     {
       path: '/test',
@@ -40,6 +40,6 @@ export default new Router({
       name: 'HelloWorld',
       component: HelloWorld
     },
-    
+
   ]
 })

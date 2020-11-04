@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-21 10:21:14
- * @LastEditTime: 2020-11-04 10:08:31
+ * @LastEditTime: 2020-11-04 10:18:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue.test\src\components\Login.vue
@@ -76,7 +76,7 @@ export default {
             localStorage.setItem("token", res.token);
             let that = this;
             setTimeout(function () {
-              that.$router.push({ path: "/test" });
+              that.$router.push({ path: "/index" });
             }, 1002);
           } else {
             this.$message.error(res.msg);

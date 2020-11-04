@@ -1,39 +1,51 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-11-03 20:09:48
+ * @LastEditTime: 2020-11-04 11:10:10
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vue.test\src\components\header.vue
+-->
 <template>
-  <div>
-    <el-menu
-      :default-active="activeIndex2"
-      class="el-menu-demo"
-      mode="horizontal"
-      @select="handleSelect"
-      background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b"
-    >
-      <el-menu-item index="1">处理中心</el-menu-item>
-      <el-submenu index="2">
-        <template slot="title">我的工作台</template>
-        <el-menu-item index="2-1">选项1</el-menu-item>
-        <el-menu-item index="2-2">选项2</el-menu-item>
-        <el-menu-item index="2-3">选项3</el-menu-item>
-      </el-submenu>
-      <el-menu-item index="3"
-        ><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item
-      >
-    </el-menu>
+  <div class="header">
+    <div class="uname">
+      <div class="logo"><img src="https://img.alicdn.com/imgextra/i1/2609832847/O1CN01yamezw1WtyEXQ5Rt3_!!2609832847.jpg"/></div>
+      <div style="color:#fff">你好，XX!</div>
+    </div>
   </div>
 </template>
 <script>
   export default {
     data() {
       return {
-        activeIndex: '1',
-        activeIndex2: '1'
+        
       };
     },
     methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
-      }
+      
     }
   }
 </script>
+<style scoped>
+.header{
+  width: 100%;
+  height: 60px;
+  background-color: #545C64;
+}
+.uname{
+  padding-top: 10px;
+  display: flex;
+  margin-right: 20px;
+  justify-content:flex-end;
+  align-items: center;
+}
+.logo{
+  margin-right: 10px;
+}
+.logo img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+</style>
