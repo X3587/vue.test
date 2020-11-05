@@ -1,19 +1,19 @@
 /*
  * @Author: your name
  * @Date: 2020-10-16 11:18:36
- * @LastEditTime: 2020-11-05 15:49:44
+ * @LastEditTime: 2020-11-05 19:47:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\router\index.js
  */
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import UserList from '@/components/UserList'
-import Index from '@/components/Index'
-import Login from '@/components/Login'
-import Register from '@/components/Register'
-import ShopList from '@/components/ShopList'
+import HelloWorld from '@/Views/HelloWorld'
+import UserList from '@/Views/UserList'
+import Index from '@/Views/Index'
+import Login from '@/Views/Login'
+import Register from '@/Views/Register'
+import ShopList from '@/Views/ShopList'
 
 
 Vue.use(Router)
