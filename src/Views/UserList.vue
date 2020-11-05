@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-16 11:25:39
- * @LastEditTime: 2020-11-05 16:14:06
+ * @LastEditTime: 2020-11-05 20:04:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\components\Test.vue
@@ -13,7 +13,7 @@
         <el-table-column prop="id" label="编号" > </el-table-column>
         <el-table-column prop="name" label="姓名" >
         </el-table-column>
-        <el-table-column prop="pwd" label="密码"> </el-table-column>
+        <el-table-column prop="pwd" label="密码">暂无权限</el-table-column>
       </el-table>
     </div>
   </div>
