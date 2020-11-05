@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-11-03 20:19:10
- * @LastEditTime: 2020-11-05 11:33:15
+ * @LastEditTime: 2020-11-05 16:22:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue.test\src\components\index.vue
@@ -12,7 +12,7 @@
       <el-aside><leftMenu /></el-aside>
       <el-container>
         <el-header><headers /></el-header>
-        <el-main>
+        <el-main style="background-color:#F0F2F5">
           <router-view></router-view>
         </el-main>
       </el-container>

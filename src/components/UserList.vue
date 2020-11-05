@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-16 11:25:39
- * @LastEditTime: 2020-11-05 15:48:44
+ * @LastEditTime: 2020-11-05 16:14:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\components\Test.vue
@@ -10,8 +10,8 @@
   <div class="content">
     <div class="tables">
       <el-table :data="tableData" style="width: 100%">
-        <el-table-column prop="id" label="编号" width="180"> </el-table-column>
-        <el-table-column prop="name" label="姓名" width="180">
+        <el-table-column prop="id" label="编号" > </el-table-column>
+        <el-table-column prop="name" label="姓名" >
         </el-table-column>
         <el-table-column prop="pwd" label="密码"> </el-table-column>
       </el-table>
@@ -36,11 +36,8 @@ export default {
   methods: {},
 };
 </script>
-
 <style>
 .content{
   width: 100%;
-}
-.content .tables {
 }
 </style>
