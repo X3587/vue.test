@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-16 11:18:36
- * @LastEditTime: 2020-11-05 15:43:43
+ * @LastEditTime: 2020-11-05 15:49:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\router\index.js
@@ -9,7 +9,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import Test from '@/components/Test'
+import UserList from '@/components/UserList'
 import Index from '@/components/Index'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
@@ -42,10 +42,10 @@ const routes = [
         component: HelloWorld,
       },
       {
-        path: '/test',
-        name: 'Test',
+        path: '/userlist',
+        name: 'UserList',
         title: "用户管理",
-        component: Test
+        component: UserList
       },
       {
         path: '/shoplist',

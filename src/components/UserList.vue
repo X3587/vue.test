@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-16 11:25:39
- * @LastEditTime: 2020-10-21 09:54:31
+ * @LastEditTime: 2020-11-05 15:48:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\components\Test.vue
@@ -42,7 +42,5 @@ export default {
   width: 100%;
 }
 .content .tables {
-  width: 50%;
-  margin: 0 auto;;
 }
 </style>
