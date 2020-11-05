@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-16 11:18:36
- * @LastEditTime: 2020-11-04 14:05:49
+ * @LastEditTime: 2020-11-05 14:39:53
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\router\index.js
@@ -18,35 +18,40 @@ import Register from '@/components/Register'
 
 Vue.use(Router)
 
-export default new Router({
-  // base: '/',
-  mode: "history",
-  routes: [
-    {
-      path: '/',
-      name: 'Login',
-      component: Login
-    },
-    {
-      path: '/reister',
-      name: 'Register',
-      component: Register
-    },
-    {
-      path: '/index',
-      name: 'Index',
-      component: Index
-    },
-    {
-      path: '/test',
-      name: 'Test',
-      component: Test
-    },
-    {
-      path: '/hello',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
+const routes = [
+  {
+    path: '/',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/reister',
+    name: 'Register',
+    component: Register
+  },
+  {
+    path: '/index',
+    name: 'Index',
+    component: Index,
+    children: [
+      {
+        path: '/hello',
+        name: 'HelloWorld',
+        title:"你好",
+        component: HelloWorld
+      },
+      {
+        path: '/test',
+        name: 'Test',
+        title:"测试",
+        component: Test
+      },
+    ]
+  },
 
-  ]
+
+]
+export default new Router({
+  mode: "history",
+  routes: [...routes]
 })

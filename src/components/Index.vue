@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-11-03 20:19:10
- * @LastEditTime: 2020-11-04 11:32:07
+ * @LastEditTime: 2020-11-05 11:33:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue.test\src\components\index.vue
@@ -12,7 +12,9 @@
       <el-aside><leftMenu /></el-aside>
       <el-container>
         <el-header><headers /></el-header>
-        <el-main>Main</el-main>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -21,7 +23,6 @@
 <script>
 import leftMenu from "@/components/LeftMenu";
 import headers from "@/components/Header";
-import router from "@/router/index"
 export default {
   components: {
     headers: headers,

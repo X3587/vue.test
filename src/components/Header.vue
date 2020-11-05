@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-11-03 20:09:48
- * @LastEditTime: 2020-11-04 11:10:10
+ * @LastEditTime: 2020-11-05 09:23:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue.test\src\components\header.vue
@@ -10,7 +10,7 @@
   <div class="header">
     <div class="uname">
       <div class="logo"><img src="https://img.alicdn.com/imgextra/i1/2609832847/O1CN01yamezw1WtyEXQ5Rt3_!!2609832847.jpg"/></div>
-      <div style="color:#fff">你好，XX!</div>
+      <div style="color:#fff">你好，{{name}}</div>
     </div>
   </div>
 </template>
@@ -18,12 +18,12 @@
   export default {
     data() {
       return {
-        
+        name:localStorage.getItem("userName")
       };
     },
     methods: {
       
-    }
+    },
   }
 </script>
 <style scoped>

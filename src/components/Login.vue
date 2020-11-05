@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-21 10:21:14
- * @LastEditTime: 2020-11-04 14:07:19
+ * @LastEditTime: 2020-11-05 09:22:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue.test\src\components\Login.vue
@@ -68,6 +68,7 @@ export default {
         }).then((res) => {
           console.log(res);
           if (res.status == 200) {
+            localStorage.setItem("userName",name)
             this.$message({
               message: "登陆成功",
               type: "success",
