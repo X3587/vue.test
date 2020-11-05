@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-11-03 20:13:58
- * @LastEditTime: 2020-11-05 14:37:27
+ * @LastEditTime: 2020-11-05 15:34:09
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue.test\src\components\Left.vue
@@ -17,24 +17,18 @@
       text-color="#fff"
       active-text-color="#ffd04b"
     >
-      <div>
-        <div v-for="item in routers" :key="item.name">
-          <div v-if="item.children">
-            <el-menu-item
-              :index="index"
-              v-for="(child, index) in item.children"
-              :key="child.name"
-            >
-              <router-link tag="div" :to="child.path">
-                <div>
-                  <i class="el-icon-menu"></i>
-                  <span slot="title"> {{ child.title }}</span>
-                </div>
-              </router-link>
-            </el-menu-item>
+      <el-menu-item
+        v-for="item in routers[0].children"
+        :key="item.name"
+        :index="item.name"
+      >
+        <router-link tag="div" :to="item.path">
+          <div>
+            <i class="el-icon-menu"></i>
+            <span slot="title"> {{ item.title }}</span>
           </div>
-        </div>
-      </div>
+        </router-link>
+      </el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -66,8 +60,10 @@ export default {
     },
   },
   created() {
-    console.log("router", router.options.routes);
-    this.routers = router.options.routes;
+    const arr = router.options.routes.filter((v) => v.name === "index");
+    console.log("arr", arr);
+    this.routers = arr;
+    console.log("this", this.routers);
   },
 };
 </script>

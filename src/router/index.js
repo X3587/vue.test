@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-16 11:18:36
- * @LastEditTime: 2020-11-05 14:39:53
+ * @LastEditTime: 2020-11-05 15:43:43
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\router\index.js
@@ -13,7 +13,7 @@ import Test from '@/components/Test'
 import Index from '@/components/Index'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
-
+import ShopList from '@/components/ShopList'
 
 
 Vue.use(Router)
@@ -31,20 +31,27 @@ const routes = [
   },
   {
     path: '/index',
-    name: 'Index',
+    name: 'index',
     component: Index,
+    redirect:"/hello",
     children: [
       {
         path: '/hello',
         name: 'HelloWorld',
-        title:"你好",
-        component: HelloWorld
+        title: "你好",
+        component: HelloWorld,
       },
       {
         path: '/test',
         name: 'Test',
-        title:"测试",
+        title: "用户管理",
         component: Test
+      },
+      {
+        path: '/shoplist',
+        name: 'ShopList',
+        title: "商品列表",
+        component: ShopList
       },
     ]
   },
