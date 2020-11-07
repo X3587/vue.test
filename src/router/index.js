@@ -6,59 +6,60 @@
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\router\index.js
  */
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/Views/HelloWorld'
-import UserList from '@/Views/UserList'
-import Index from '@/Views/Index'
-import Login from '@/Views/Login'
-import Register from '@/Views/Register'
-import ShopList from '@/Views/ShopList'
+import Vue from "vue";
+import Router from "vue-router";
 
-
-Vue.use(Router)
+Vue.use(Router);
 
 const routes = [
   {
-    path: '/',
-    name: 'Login',
-    component: Login
+    path: "/",
+    name: "Login",
+    component: resolve => require(["@/Views/Login"], resolve)
   },
   {
-    path: '/reister',
-    name: 'Register',
-    component: Register
+    path: "/reister",
+    name: "Register",
+    component: resolve => require(["@/Views/Register"], resolve)
   },
   {
-    path: '/index',
-    name: 'index',
-    component: Index,
-    redirect:"/hello",
+    path: "/index",
+    name: "index",
+    component: resolve => require(["@/Views/Index"], resolve),
+
+    redirect: "/hello",
     children: [
       {
-        path: '/hello',
-        name: 'HelloWorld',
+        path: "/hello",
+        name: "HelloWorld",
         title: "你好",
-        component: HelloWorld,
+        component: resolve => require(["@/Views/HelloWorld"], resolve)
       },
       {
-        path: '/userlist',
-        name: 'UserList',
+        path: "/userlist",
+        name: "UserList",
         title: "用户管理",
-        component: UserList
+        component: resolve => require(["@/Views/UserList"], resolve)
+
       },
       {
-        path: '/shoplist',
-        name: 'ShopList',
+        path: "/shoplist",
+        name: "ShopList",
         title: "商品列表",
-        component: ShopList
+        component: resolve => require(["@/Views/ShopList"], resolve)
+
       },
+      {
+        path: "/addshop",
+        name: "AddShop",
+        title: "添加商品",
+        component: resolve => require(["@/Views/AddShop"], resolve)
+
+      }
     ]
-  },
-
-
-]
+  }
+];
 export default new Router({
   mode: "history",
   routes: [...routes]
-})
+});
