@@ -41,4 +41,7 @@ export default {
 .el-aside{
   width: auto !important;
 }
+.el-main{
+  padding: 0 !important;
+}
 </style>
