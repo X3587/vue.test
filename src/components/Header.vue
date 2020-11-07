@@ -22,18 +22,19 @@
   </div>
 </template>
 <script>
-import router from '../router';
+import router from "../router";
 export default {
   data() {
     return {
-      name: localStorage.getItem("userName"),
+      name: localStorage.getItem("userName")
     };
   },
   methods: {
-    signOut(){
-     this.$router.push({ path: "/" });
-    },
-  },
+    signOut() {
+      localStorage.clear();
+      this.$router.push({ path: "/" });
+    }
+  }
 };
 </script>
 <style scoped>
@@ -61,6 +62,6 @@ export default {
   margin-left: 30px;
   margin-top: 6px;
   cursor: pointer;
-  color: #fff
+  color: #fff;
 }
 </style>
