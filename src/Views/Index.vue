@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-11-03 20:19:10
- * @LastEditTime: 2020-11-05 16:22:57
+ * @LastEditTime: 2020-11-08 14:38:33
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue.test\src\components\index.vue
@@ -42,6 +42,5 @@ export default {
   width: auto !important;
 }
 .el-main{
-  padding: 0 !important;
 }
 </style>
