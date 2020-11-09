@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-16 11:18:36
- * @LastEditTime: 2020-11-05 19:47:55
+ * @LastEditTime: 2020-11-09 08:59:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\router\index.js
@@ -40,22 +40,25 @@ const routes = [
         name: "UserList",
         title: "用户管理",
         component: resolve => require(["@/Views/UserList"], resolve)
-
       },
       {
         path: "/shoplist",
         name: "ShopList",
         title: "商品列表",
         component: resolve => require(["@/Views/ShopList"], resolve)
-
       },
       {
         path: "/addshop",
         name: "AddShop",
         title: "添加商品",
         component: resolve => require(["@/Views/AddShop"], resolve)
-
-      }
+      },
+      {
+        path: "/test",
+        name: "test",
+        title: "测试",
+        component: resolve => require(["@/Views/test"], resolve)
+      },
     ]
   }
 ];
