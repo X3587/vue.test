@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-16 11:18:36
- * @LastEditTime: 2020-11-09 08:59:34
+ * @LastEditTime: 2020-11-09 14:56:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\router\index.js
@@ -59,6 +59,13 @@ const routes = [
         title: "测试",
         component: resolve => require(["@/Views/test"], resolve)
       },
+      {
+        path: "/todolist",
+        name: "todoList",
+        title: "todoList",
+        component: resolve => require(["@/Views/todoList"], resolve)
+      },
+     
     ]
   }
 ];
