@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-11-19 09:30:14
- * @LastEditTime: 2020-11-19 10:35:06
+ * @LastEditTime: 2020-11-19 15:22:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue.test\src\components\headerTop.vue
@@ -32,7 +32,7 @@ export default {
   methods: {
     header(e) {
       let images = document.querySelectorAll(".top > .layer > img");
-      console.log(images);
+      // console.log(images);
       let percentage = e.clientX / window.outerWidth;
       //   console.log(percentage)
       let offset = 10 * percentage;

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-16 11:18:36
- * @LastEditTime: 2020-11-09 14:56:46
+ * @LastEditTime: 2020-11-19 13:42:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \pytest\src\router\index.js
@@ -64,6 +64,12 @@ const routes = [
         name: "todoList",
         title: "todoList",
         component: resolve => require(["@/Views/todoList"], resolve)
+      },
+      {
+        path: "/templete",
+        name: "自定义模板",
+        title: "templete",
+        component: resolve => require(["@/components/templete"], resolve)
       },
      
     ]

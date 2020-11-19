@@ -1,0 +1,161 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-11-19 13:35:37
+ * @LastEditTime: 2020-11-19 16:44:39
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vue.test\src\components\templete\index.vue
+-->
+<template>
+  <el-row>
+    <el-col :span="8">
+      <div>
+        <div class="componnets-list">
+          <div class="alists">
+            <div
+              v-for="item in baseComponentList"
+              :key="item.id"
+              class="item flex-center"
+              @click="onAddComponent(item, 'baseComponentList')"
+            >
+              {{ item.componentName }}
+            </div>
+          </div>
+        </div>
+        <div class="componnets-list">
+          <div class="alists">
+            <div
+              v-for="item in bizComponentList"
+              :key="item.id"
+              class="item flex-center"
+              @click="onAddComponent(item, 'bizComponentList')"
+            >
+              {{ item.componentName }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </el-col>
+    <el-col :span="8">
+      <div>
+        <phone />
+      </div>
+    </el-col>
+    <el-col :span="8">
+      <div>
+        <seeting />
+      </div>
+    </el-col>
+  </el-row>
+</template>
+<script>
+import phone from "@/components/templete/phone";
+import seeting from "@/components/templete/seeting-details";
+import {
+  baseComponentList,
+  bizComponentList,
+  bannerComponent,
+  saveBtnComponent,
+} from "./components.preset";
+export default {
+  components: {
+    phone: phone,
+    seeting: seeting,
+  },
+  data() {
+    return {
+      baseComponentList, //基本组件
+      bizComponentList, //业务组件
+      formConfig: [], // 预约表单的具体配置,传给中间的模拟器
+    };
+  },
+  methods: {
+    onAddComponent(e, type) {
+      // console.log(e,type)
+      let id = e.id;
+      // 区分是业务组件还是基础组件
+      let componentsList = [];
+      let preFormConfig = this.formConfig;
+      if (type == "baseComponentList") {
+        componentsList = this.baseComponentList;
+      } else if (type == "bizComponentList") {
+        componentsList = this.bizComponentList;
+      }
+      console.log("组件列表", componentsList);
+      if (!componentsList) console.error("错误的ctype");
+      let selectedComponent;
+      // 选中的组件
+      componentsList.forEach((element) => {
+        if (element.id === id) {
+          selectedComponent = element;
+          this.$message({
+            message: "恭喜你，添加成功",
+            type: "success",
+          });
+        }
+      });
+      console.log("选中的组件", selectedComponent);
+      // 如果是基础组件，可以直接添加，如果是业务组件，只能添加一次
+      let list = [];
+      let nowFormConfig = [];
+       if (type == 'bizComponentList') {  //业务组件
+        // debugger
+        console.log(preFormConfig)
+        //那对象转成数组
+        for (let key in preFormConfig) {
+          list.push(preFormConfig[key])
+        }
+        console.log(list)
+        console.log(preFormConfig)
+        if (list.filter(item => item.id == selectedComponent.id).length > 0 ||list.filter(item => item.componentName == selectedComponent.componentName).length > 0 ) {
+          console.log('重复组件')
+          my.showToast({ content: '已存在该组件' })
+          return
+        }
+        nowFormConfig = [
+          ...list,
+          selectedComponent,
+        ]
+      }
+    },
+  },
+};
+</script>
+<style scoped>
+.componnets-list {
+  width: 100%;
+}
+.componnets-list .title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.componnets-list .alists {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.componnets-list .alists .item:hover {
+  border: 1px solid #1e90ff;
+  color: #1e90ff;
+}
+.componnets-list .alists .item {
+  margin-right: 10px;
+  margin-top: 10px;
+  border: 1px solid #c0c0c0;
+  width: 185px;
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+}
+.componnets-list .alists .items {
+  margin-right: 10px;
+  margin-top: 10px;
+  border: 1px solid #c0c0c0;
+  width: 185px;
+  height: 40px;
+}
+</style>
