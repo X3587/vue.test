@@ -1,13 +1,37 @@
 <!--
  * @Author: your name
  * @Date: 2020-11-19 13:36:56
- * @LastEditTime: 2020-11-19 13:51:26
+ * @LastEditTime: 2020-11-20 16:08:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue.test\src\components\templete\phone\index.vue
 -->
 <template>
-    <div>
-        中间的手机
+  <div class="phone">
+    <div v-for="item in config" :key="item.id">
+        {{item.title}}
+    <!-- input组件 -->
+    <div v-if="item.elementType == 'TEXT'">
+        <el-input style="width:200px"  v-model="input" :placeholder="item.placeholder"></el-input>
     </div>
+    </div>
+  </div>
 </template>
+<script>
+export default {
+  props: ["config"],
+  data(){
+      return{
+          input:""
+      }
+  },
+  methods: {},
+};
+</script>
+<style scoped>
+.phone{
+    width: 100%;
+    height: 600px;
+    overflow-y:scroll;
+}
+</style>

@@ -1,14 +1,15 @@
 <!--
  * @Author: your name
  * @Date: 2020-11-03 20:19:10
- * @LastEditTime: 2020-11-19 09:40:20
+ * @LastEditTime: 2020-11-20 15:39:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue.test\src\components\index.vue
 -->
 <template>
   <div class="index">
-    <headerTop />
+    <!-- 哔哩哔哩首页的banner -->
+    <!-- <headerTop /> -->
     <el-container>
       <el-aside><leftMenu /></el-aside>
       <el-container>

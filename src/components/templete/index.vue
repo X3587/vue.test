@@ -1,52 +1,54 @@
 <!--
  * @Author: your name
  * @Date: 2020-11-19 13:35:37
- * @LastEditTime: 2020-11-19 16:44:39
+ * @LastEditTime: 2020-11-20 15:43:48
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue.test\src\components\templete\index.vue
 -->
 <template>
-  <el-row>
-    <el-col :span="8">
-      <div>
-        <div class="componnets-list">
-          <div class="alists">
-            <div
-              v-for="item in baseComponentList"
-              :key="item.id"
-              class="item flex-center"
-              @click="onAddComponent(item, 'baseComponentList')"
-            >
-              {{ item.componentName }}
+  <div class="templete">
+    <el-row>
+      <el-col :span="8">
+        <div>
+          <div class="componnets-list">
+            <div class="alists">
+              <div
+                v-for="item in baseComponentList"
+                :key="item.id"
+                class="item flex-center"
+                @click="onAddComponent(item, 'baseComponentList')"
+              >
+                {{ item.componentName }}
+              </div>
+            </div>
+          </div>
+          <div class="componnets-list">
+            <div class="alists">
+              <div
+                v-for="item in bizComponentList"
+                :key="item.id"
+                class="item flex-center"
+                @click="onAddComponent(item, 'bizComponentList')"
+              >
+                {{ item.componentName }}
+              </div>
             </div>
           </div>
         </div>
-        <div class="componnets-list">
-          <div class="alists">
-            <div
-              v-for="item in bizComponentList"
-              :key="item.id"
-              class="item flex-center"
-              @click="onAddComponent(item, 'bizComponentList')"
-            >
-              {{ item.componentName }}
-            </div>
-          </div>
+      </el-col>
+      <el-col :span="8">
+        <div>
+          <phone :config="formConfig" />
         </div>
-      </div>
-    </el-col>
-    <el-col :span="8">
-      <div>
-        <phone />
-      </div>
-    </el-col>
-    <el-col :span="8">
-      <div>
-        <seeting />
-      </div>
-    </el-col>
-  </el-row>
+      </el-col>
+      <el-col :span="8">
+        <div>
+          <seeting />
+        </div>
+      </el-col>
+    </el-row>
+  </div>
 </template>
 <script>
 import phone from "@/components/templete/phone";
@@ -88,40 +90,42 @@ export default {
       componentsList.forEach((element) => {
         if (element.id === id) {
           selectedComponent = element;
-          this.$message({
-            message: "恭喜你，添加成功",
-            type: "success",
-          });
+          // this.$message({
+          //   message: "恭喜你，添加成功",
+          //   type: "success",
+          // });
         }
       });
       console.log("选中的组件", selectedComponent);
-      // 如果是基础组件，可以直接添加，如果是业务组件，只能添加一次
       let list = [];
-      let nowFormConfig = [];
-       if (type == 'bizComponentList') {  //业务组件
-        // debugger
-        console.log(preFormConfig)
-        //那对象转成数组
-        for (let key in preFormConfig) {
-          list.push(preFormConfig[key])
+      if (type == "bizComponentList") {
+        for (let key in this.formConfig) {
+          list.push(this.formConfig[key]);
         }
-        console.log(list)
-        console.log(preFormConfig)
-        if (list.filter(item => item.id == selectedComponent.id).length > 0 ||list.filter(item => item.componentName == selectedComponent.componentName).length > 0 ) {
-          console.log('重复组件')
-          my.showToast({ content: '已存在该组件' })
-          return
+        if (
+          list.filter((item) => item.id == selectedComponent.id).length > 0 ||
+          list.filter(
+            (item) => item.componentName == selectedComponent.componentName
+          ).length > 0
+        ) {
+          console.log("重复组件");
+          this.$message({ message: "已存在该组件" });
+        } else {
+          this.formConfig.push(selectedComponent);
         }
-        nowFormConfig = [
-          ...list,
-          selectedComponent,
-        ]
+      } else {
+        this.formConfig.push(selectedComponent);
       }
+      console.log("所有点击的组件", this.formConfig);
     },
   },
 };
 </script>
 <style scoped>
+.templete{
+  background-color: #fff;
+  padding: 20px;
+}
 .componnets-list {
   width: 100%;
 }
