@@ -13,7 +13,7 @@ import { get, post } from './http'
 //列表
 export const userList = p => post('newapp/index/', p);
 //登录
-export const login = p => post('login/index/', p);
+export const login = p => post('user/login/', p);
 //注册
-export const register = p => post('register/index/', p);
+export const register = p => post('user/register/', p);
 
