@@ -39,7 +39,7 @@
       </el-col>
       <el-col :span="8">
         <div>
-          <phone :config="formConfig" />
+          <phone :config="formConfig" @click="clickComponents" />
         </div>
       </el-col>
       <el-col :span="8">
@@ -118,6 +118,10 @@ export default {
       }
       console.log("所有点击的组件", this.formConfig);
     },
+    // 点击了那个组件
+    clickComponents(){
+
+    }
   },
 };
 </script>

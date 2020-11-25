@@ -11,8 +11,11 @@
     <div v-for="item in config" :key="item.id">
         {{item.title}}
     <!-- input组件 -->
-    <div v-if="item.elementType == 'TEXT'">
+    <div v-if="item.elementType == 'TEXT'" class="desc">
         <el-input style="width:200px"  v-model="input" :placeholder="item.placeholder"></el-input>
+    </div>
+    <div v-else class="desc">
+      <div>这是{{item.title}}组件</div>
     </div>
     </div>
   </div>
@@ -33,5 +36,8 @@ export default {
     width: 100%;
     height: 600px;
     overflow-y:scroll;
+}
+.desc{
+  margin-bottom: 20px;
 }
 </style>
