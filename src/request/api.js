@@ -11,7 +11,7 @@
  */
 import { get, post } from './http'
 //列表
-export const userList = p => post('newapp/index/', p);
+export const userList = p => post('user/userList/', p);
 //登录
 export const login = p => post('user/login/', p);
 //注册
