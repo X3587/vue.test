@@ -8,11 +8,11 @@ import { Toast } from 'vant';
 
 // 环境的切换
 if (process.env.NODE_ENV == 'development') {    
-    axios.defaults.baseURL = 'http://fubuqi.top:8001/';
+    axios.defaults.baseURL = 'https://fubuqi.top/';
 } else if (process.env.NODE_ENV == 'debug') {    
-    axios.defaults.baseURL = 'http://fubuqi.top:8001/';
+    axios.defaults.baseURL = 'https://fubuqi.top/';
 } else if (process.env.NODE_ENV == 'production') {    
-    axios.defaults.baseURL = 'http://fubuqi.top:8001/';
+    axios.defaults.baseURL = 'https://fubuqi.top/';
 }
 
 // 请求超时时间
