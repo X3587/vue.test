@@ -28,7 +28,7 @@
       </el-form-item>
       <el-form-item label="商品主图">
         <el-upload
-          action="https://sucai.wangpu.taobao.com/#/manage/?_k=2ozt05"
+          action="http://127.0.0.1:8000/goods/upLoadImg/"
           list-type="picture-card"
           :on-preview="handlePictureCardPreview"
           :on-remove="handleRemove"
